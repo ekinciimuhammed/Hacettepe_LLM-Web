@@ -1,0 +1,24 @@
+.deer-container {
+  position: absolute;
+  z-index: 1; /* Behind robot (usually robot is z-index 2 or higher implicitly by order) */
+  transition: left 2s ease-in-out, top 2s ease-in-out;
+  color: #795548; /* Natural Brown */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+body.dark-mode .deer-container {
+  color: #BCAAA4; /* Lighter brown for dark mode */
+  opacity: 0.8;
+}
+
+/* Bobbing animation when moving */
+.deer-container.moving svg {
+  animation: walk-bob 0.4s infinite alternate ease-in-out;
+}
+
+@keyframes walk-bob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
